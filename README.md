@@ -1,16 +1,50 @@
-# React + Vite
+# CareerGraph — Graph-Powered Job Recommendation Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+CareerGraph is a graph-based career discovery and job recommendation platform that connects candidates, skills, jobs, and companies using CognoDB.
 
-Currently, two official plugins are available:
+The application demonstrates how graph relationships and multi-hop traversal can be used to discover relevant job opportunities based on a candidate's skills.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Candidate skill profile
+- Job discovery
+- Company information
+- Skill-based job recommendations
+- Skill match percentage
+- Multi-hop graph traversal
+- Graph-based data modeling
+- REST API backend
+- React frontend
+- Loading state
+- Empty state
+- Error state
+- Parameterized Cypher queries
+- CognoDB integration
+- Database seed script
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Why a Graph Database?
+
+Career recommendation data contains many connected relationships.
+
+A candidate can have multiple skills, a job can require multiple skills, and every job can be associated with a company.
+
+A graph database represents these connections directly:
+
+```text
+Candidate
+    |
+    | HAS_SKILL
+    v
+  Skill
+    ^
+    | REQUIRES
+    |
+   Job
+    |
+    | POSTED_BY
+    v
+ Company
